@@ -1,0 +1,8 @@
+services:
+  server:
+    build: .
+    command: bundle exec rackup -o '0.0.0.0' -p4567
+    ports:
+      - 4567:4567
+    environment:
+      - APPLICATION_ENVIRONMENT=production

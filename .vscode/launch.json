@@ -1,0 +1,38 @@
+{
+  "configurations": [
+  {
+    "type": "rdbg",
+    "name": "Attach rdbg",
+    "request": "attach"
+  },{
+    "name": "Debug server",
+    "type": "rdbg",
+    "request": "launch",
+    "cwd": "${workspaceFolder}",
+    "command": "rackup",
+    "useBundler": true,
+    "script": "${workspaceFolder}/config.ru",
+    "pathToBundler": "/usr/local/bundle/bin/bundle",
+    "rdbgPath": "/usr/local/bundle/bin/rdbg",
+    "args": [
+      "-o",
+      "'0.0.0.0'",
+      "-p",
+      "4567",
+    ],
+  },
+    {
+      "name": "Debug Sinatra Puma Server",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "useBundler": true,
+      "pathToBundler": "/usr/local/bundle/bin/bundler",
+      "pathToRDebugIDE": "/usr/local/bundle/bin/rdebug-ide",
+      "program": "/usr/local/bundle/bin/puma",
+      "args": [
+        "${workspaceRoot}/config.ru"
+      ]
+    },
+  ]
+}

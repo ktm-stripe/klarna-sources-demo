@@ -1,0 +1,58 @@
+<h1>Checkout Using Klarna</h1>
+<form id="checkout_form" onsubmit="return false">
+  <div>
+    <div class="input-field il">
+      <label for="first_name">First Name</label>
+      <div class="error" id="first_name_error"></div>
+      <input type="text" id="first_name" name="first_name">
+    </div>
+    <div class="input-field il">
+      <label for="last_name">Last Name</label>
+      <div class="error" id="last_name_error"></div>
+      <input type="text" id="last_name" name="last_name">
+    </div>
+  </div>
+  <div class="input-field">
+    <label for="email">Email</label>
+    <div class="error" id="email_error"></div>
+    <input type="text" id="email" name="email">
+  </div>
+  <div>
+    <div class="input-field il">
+      <label for="line1">Address Line 1</label>
+      <div class="error" id="line1_error"></div>
+      <input type="text" id="line1" name="line1">
+    </div>
+    <div class="input-field il">
+      <label for="line2">Address Line 2</label>
+      <div class="error" id="line2_error"></div>
+      <input type="text" id="line2" name="line2">
+    </div>
+  </div>
+  <div>
+    <div class="input-field il">
+      <label for="city">City</label>
+      <div class="error" id="city_error"></div>
+      <input type="text" id="city" name="city">
+    </div>
+    <div class="input-field il">
+      <label for="state">State</label>
+      <div class="error" id="state_error"></div>
+      <input class="narrow" type="text" id="state" name="state">
+    </div>
+    <div class="input-field il">
+      <label for="postal_code">Postal Code</label>
+      <div class="error" id="postal_code_error"></div>
+      <input type="text" id="postal_code" name="postal_code">
+    </div>
+  </div>
+  <div class="input-field">
+    <label for="country">Country</label>
+    <div class="error" id="country_error"></div>
+    <input class="narrow" type="text" id="country" name="country" value="US" disabled>
+  </div>
+
+  <div class="input-field">
+    <button type="button" id="checkout_button" onclick="checkout()">Checkout</button>
+  </div>
+</form>

@@ -1,0 +1,34 @@
+
+<h1>Charge <%= @charge.id %></h1>
+
+<% if @charge[:captured] %>
+<p>
+Shopping is complete, Charge Successfully Captured
+</p>
+<% else %>
+<p>
+Order placed, waiting for shopper
+</p>
+<form id="capture_form" onsubmit="return false">
+  <div class="input-field">
+    <label for="capture_amount">Capture Amount</label>
+    <div class="error" id="capture_amount_error"></div>
+    <input type="number" id="capture_amount" name="capture_amount" value="<%= @charge.amount %>">
+  </div>
+  <input type="hidden" name="charge_id" value="<%= @charge.id %>" />
+  <div class="input-field">
+    <button type="button" id="capture_button" onclick="capture()">Capture Payment</button>
+  </div>
+</form>
+<% end %>
+
+Params
+<code>
+<%= params %>
+</code>
+
+Charge
+<code>
+<%= as_pretty_json @charge %>
+</code>
+

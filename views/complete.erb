@@ -1,0 +1,26 @@
+
+<h1>Source Created</h1>
+
+<form id="auth_form" onsubmit="return false">
+  <div class="input-field">
+    <label for="auth_amount">Auth Amount</label>
+    <div class="error" id="auth_amount_error"></div>
+    <input type="number" id="auth_amount" name="auth_amount" value="<%= @source.amount %>">
+  </div>
+  <input type="hidden" name="source_id" value="<%= @source.id %>" />
+  <div class="input-field">
+    <button type="button" id="auth_button" onclick="auth()">Create Auth Charge</button>
+  </div>
+</form>
+
+
+Params
+<code>
+<%= params %>
+</code>
+
+Source
+<code>
+<%= as_pretty_json @source %>
+</code>
+

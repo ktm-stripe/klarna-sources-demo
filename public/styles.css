@@ -1,0 +1,39 @@
+.input-field {
+  margin: 5px;
+}
+
+.input-field label {
+  display: block;
+  font-weight: bold;
+}
+
+.il {
+  display: inline-block
+}
+
+.narrow {
+  width: 40px;
+}
+
+.error {
+  color: #F00;
+  font-style: italic;
+}
+
+code {
+  display: block;
+  background-color: #DDD;
+  border: solid 1px #444;
+  border-radius: 6px;
+  margin: 4px 0;
+  padding: 4px;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  background-color: #3AF;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+}
