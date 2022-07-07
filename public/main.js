@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_51Jjri3AM0pItg6BcHgEbakaBIa0b1sY5rkT0YEchu6gN93KBD935AgGuZmnsEIGvDMgyWurM9neFdoecmfzsg5I100pMGneOU7');
+var stripe = Stripe('ADD_YOUR_STRIPE_PUBLISHABLE_KEY');
 
 function checkout() {
   var params = serializeForm('checkout_form');

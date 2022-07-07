@@ -12,6 +12,14 @@ You can also click the Remote Containers icon ![](docs/images/2022-07-07-15-08-2
 
 ![](docs/images/2022-07-07-15-08-04.png)
 
+## Authentication
+
+[Stripe API Key Documentation](https://stripe.com/docs/keys)
+
+For authenticating the server, copy [`.env.example`](.env.example) as `.env`, then add your *Stripe Secret Key* as the `STRIPE_API_KEY`.
+
+For authenticating Stripe.js, you'll need to add your *Stripe publishable key* at the top of [`public/main.js`](public/main.js).
+
 ## Starting the development server
 
 From VS Code's Run and Debug menu, run "Debug server".
