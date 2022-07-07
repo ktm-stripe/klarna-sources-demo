@@ -21,18 +21,5 @@
       "4567",
     ],
   },
-    {
-      "name": "Debug Sinatra Puma Server",
-      "type": "Ruby",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "useBundler": true,
-      "pathToBundler": "/usr/local/bundle/bin/bundler",
-      "pathToRDebugIDE": "/usr/local/bundle/bin/rdebug-ide",
-      "program": "/usr/local/bundle/bin/puma",
-      "args": [
-        "${workspaceRoot}/config.ru"
-      ]
-    },
   ]
 }
