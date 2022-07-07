@@ -53,6 +53,16 @@ class KlarnaSourcesDemo < Sinatra::Base
     body e.json_body.to_json
   end
 
+  post '/webhook' do
+    data = JSON.parse(request.body.read)
+
+    puts "🕸🪝 Webhook: #{data['type']}"
+    p data
+
+    status 200
+    body ''
+  end
+
   protected
 
   def h(html)

@@ -4,9 +4,15 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "start server",
+      "label": "start Stripe Webhook forwarding",
       "type": "shell",
-      "command": "foreman start"
+      "command": "stripe",
+      "args": [
+        "listen",
+        "--forward-to",
+        "localhost:4567/webhook"
+      ],
+      "problemMatcher": []
     }
   ]
 }
