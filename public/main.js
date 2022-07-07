@@ -7,7 +7,7 @@ function checkout() {
 
   var sourceParams = {
     type: 'klarna',
-    amount: 10500,
+    amount: 105_00,
     currency: 'usd',
     klarna: {
       product: 'payment',
