@@ -5,13 +5,57 @@ function checkout() {
 
   clearErrors();
 
-  post('/create_source', params, function (result) {
-    var result = JSON.parse(this.response)
+  var sourceParams = {
+    type: 'klarna',
+    amount: 10500,
+    currency: 'usd',
+    klarna: {
+      product: 'payment',
+      purchase_country: 'US',
+      first_name: params.first_name,
+      last_name: params.last_name,
+    },
+    owner: {
+      email: params.email,
+      address: {
+        line1: params.line1,
+        line2: params.line2,
+        city: params.city,
+        state: params.state,
+        postal_code: params.postal_code,
+        country: params.country,
+      }
+    },
+    flow: 'redirect',
+    redirect: {
+      return_url: 'http://localhost:4567/complete',
+    },
+    source_order: {
+      items: [{
+        type: 'sku',
+        description: 'Grey cotton T-shirt',
+        quantity: 2,
+        currency: 'usd',
+        amount: 100_00,
+      }, {
+        type: 'tax',
+        description: 'Taxes',
+        currency: 'usd',
+        amount: 5_00,
+      }, {
+        type: 'shipping',
+        description: 'Free Shipping',
+        currency: 'usd',
+        amount: 0,
+      }]
+    }
+  };
 
-    if (this.status != 200) {
+  stripe.createSource(sourceParams).then(function (result) {
+    if (result.error) {
       renderError(result.error)
     } else {
-      window.location.href = result.redirect.url
+      window.location.href = result.source.redirect.url
     }
   });
 }

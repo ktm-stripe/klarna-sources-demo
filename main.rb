@@ -53,63 +53,7 @@ class KlarnaSourcesDemo < Sinatra::Base
     body e.json_body.to_json
   end
 
-
-  post '/create_source' do
-    data = JSON.parse(request.body.read)
-
-    source = Stripe::Source.create({
-      type: 'klarna',
-      amount: 1599,
-      currency: 'usd',
-      klarna: {
-        product: 'payment',
-        purchase_country: 'US',
-        first_name: data['first_name'],
-        last_name: data['last_name'],
-      },
-      owner: {
-        email: data['email'],
-        address: {
-          line1: data['line1'],
-          line2: data['line2'],
-          city: data['city'],
-          state: data['state'],
-          postal_code: data['postal_code'],
-          country: data['country'],
-        }
-      },
-      flow: 'redirect',
-      redirect: {
-        return_url: 'http://localhost:4567/complete',
-      },
-      source_order: {
-        items: [{
-          type: 'sku',
-          description: 'Grey cotton T-shirt',
-          quantity: 2,
-          currency: 'usd',
-          amount: 1499,
-        }, {
-          type: 'tax',
-          description: 'Taxes',
-          currency: 'usd',
-          amount: 100,
-        }, {
-          type: 'shipping',
-          description: 'Free Shipping',
-          currency: 'usd',
-          amount: 0,
-        }],
-      },
-    }).to_json
-
-  rescue Stripe::InvalidRequestError => e
-    status e.http_status
-    body e.json_body.to_json
-  end
-
   protected
-
 
   def h(html)
     CGI.escapeHTML html
