@@ -3,12 +3,9 @@
 
 <% if @charge[:captured] %>
 <p>
-Shopping is complete, Charge Successfully Captured
+Charge Successfully Captured
 </p>
 <% else %>
-<p>
-Order placed, waiting for shopper
-</p>
 <form id="capture_form" onsubmit="return false">
   <div class="input-field">
     <label for="capture_amount">Capture Amount</label>
